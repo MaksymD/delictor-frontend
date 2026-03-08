@@ -1,7 +1,11 @@
-import { getMarkdownContent } from "@/lib/fetchContent";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
-export default function HomePage() {
-    const { data, content } = getMarkdownContent("home.md");
+export default async function HomePage() {
+    const fullPath = path.join(process.cwd(), "content/home.md");
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data, content } = matter(fileContents);
 
     return (
         <section className="text-center py-20">
