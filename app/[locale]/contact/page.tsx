@@ -1,4 +1,7 @@
 import { getPageContent } from "@/lib/content";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
@@ -39,27 +42,27 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                         href="https://instagram.com/yourprofile"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-pink-100 hover:bg-pink-200 transition"
+                        className="flex items-center justify-center px-4 py-2 rounded-lg bg-white-100 hover:bg-pink-200 transition"
                     >
-                        <span className="font-medium text-pink-600">Instagram</span>
+                        <InstagramIcon className="text-pink-600" /><span>Instagram</span>
                     </a>
 
                     <a
                         href="https://facebook.com/yourprofile"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-100 hover:bg-blue-200 transition"
+                        className="flex items-center justify-center px-4 py-2 rounded-lg bg-white-100 hover:bg-blue-200 transition"
                     >
-                        <span className="font-medium text-blue-700">Facebook</span>
+                        <FacebookIcon className="text-blue-700" /><span>Facebook</span>
                     </a>
 
                     <a
                         href="https://wa.me/1234567890"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-green-100 hover:bg-green-200 transition"
+                        className="flex items-center justify-center px-4 py-2 rounded-lg bg-white-100 hover:bg-green-200 transition"
                     >
-                        <span className="font-medium text-green-700">WhatsApp</span>
+                        <WhatsAppIcon className="text-green-700"/><span>WhatsApp</span>
                     </a>
                 </div>
             </div>
