@@ -3,7 +3,8 @@ import MenuPDF from "@/components/MenuPDF";
 
 export default async function MenuPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
-    const { data, content } = await getPageContent("menu", locale);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { data: _data, content } = await getPageContent("menu", locale);
 
     return (
         <div className="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
