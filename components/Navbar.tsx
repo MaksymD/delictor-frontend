@@ -48,7 +48,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="flex justify-between items-center p-6 bg-white shadow text-gray-800">
+        <nav className="sticky top-0 z-50 flex justify-between items-center p-6 bg-white shadow text-gray-800">
             <div className="text-2xl font-bold drop-shadow-sm">
                 KOLLEKTIV
             </div>
