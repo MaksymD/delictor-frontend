@@ -11,9 +11,9 @@ export default function Footer() {
 
     return (
         <footer className="flex justify-between items-center p-6 bg-white shadow text-gray-800 drop-shadow-sm">
-            <div className="text-lg font-semibold">© 2026 KOLLEKTIV. All rights reserved.</div>
-            <div className="flex gap-4 text-md">
-                <Link href={`/${currentLocale}/privacy`} className="hover:underline">{t('privacy')}</Link>
+            <div className="text-sm text-gray-500">© 2026 KOLLEKTIV. <span className="text-xs">All rights reserved.</span></div>
+    <div className="flex gap-4 text-md">
+    <Link href={`/${currentLocale}/privacy`} className="hover:underline">{t('privacy')}</Link>
                 <Link href={`/${currentLocale}/terms`} className="hover:underline">{t('terms')}</Link>
             </div>
         </footer>
