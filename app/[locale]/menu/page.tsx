@@ -10,7 +10,7 @@ export default async function MenuPage({ params }: { params: Promise<{ locale: s
             <h1 className="text-4xl font-bold mb-4">{data.title || "Menu"}</h1>
             <div className="prose prose-lg mx-auto px-8" dangerouslySetInnerHTML={{ __html: content }} />
             <div className="max-w-5xl mx-auto px-4 mt-8">
-                <PDFViewer src="/menu.pdf" />
+                <PDFViewer src={`/menu_${locale}.pdf`} />
             </div>
         </section>
     );
