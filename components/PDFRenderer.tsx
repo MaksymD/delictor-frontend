@@ -14,7 +14,8 @@ export default function PDFRenderer({src}: PDFRendererProps) {
     // Calculate responsive width
     const getResponsiveWidth = () => {
         if (typeof window !== 'undefined') {
-            const screenWidth = window.innerWidth;
+            const viewport = window.visualViewport;
+            const screenWidth = viewport ? viewport.width : window.innerWidth;
             // On mobile, use screen width minus padding, on desktop use fixed width
             return screenWidth < 768 ? screenWidth - 40 : 800; // 40px for padding
         }
