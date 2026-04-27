@@ -1,7 +1,7 @@
 "use client";
 
 import {Document, Page, pdfjs} from "react-pdf";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 // Set up PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
@@ -11,14 +11,35 @@ interface PDFRendererProps {
 }
 
 export default function PDFRenderer({src}: PDFRendererProps) {
+    // Calculate responsive width
+    const getResponsiveWidth = () => {
+        if (typeof window !== 'undefined') {
+            const screenWidth = window.innerWidth;
+            // On mobile, use screen width minus padding, on desktop use fixed width
+            return screenWidth < 768 ? screenWidth - 40 : 800; // 40px for padding
+        }
+        return 800;
+    };
+
     const [numPages, setNumPages] = useState<number>(0);
+    const [pageWidth, setPageWidth] = useState<number>(() => getResponsiveWidth());
 
     function onDocumentLoadSuccess({numPages}: { numPages: number }) {
         setNumPages(numPages);
     }
 
+    // Update width on mount and resize
+    useEffect(() => {
+        const handleResize = () => {
+            setPageWidth(getResponsiveWidth());
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
-        <div className="flex flex-col items-center h-full bg-white">
+        <div className="flex flex-col items-center h-full bg-white px-5">
             <Document
                 file={src}
                 onLoadSuccess={onDocumentLoadSuccess}
@@ -28,10 +49,10 @@ export default function PDFRenderer({src}: PDFRendererProps) {
                     <Page
                         key={`page_${index + 1}`}
                         pageNumber={index + 1}
-                        width={800}
+                        width={pageWidth}
                         renderTextLayer={false}
                         renderAnnotationLayer={false}
-                        className="shadow-lg"
+                        className="shadow-lg max-w-full"
                     />
                 ))}
             </Document>
