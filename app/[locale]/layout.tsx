@@ -1,7 +1,8 @@
 import "@/styles/globals.css";
-import Navbar from "@/components/Navbar";
+import ClientLayout from "@/components/ClientLayout";
 import Footer from "@/components/Footer";
-import { locales } from "@/lib/i18n";
+import {locales} from "@/lib/i18n";
+import {getMessages} from 'next-intl/server';
 
 export default async function RootLayout({
                                              children,
@@ -10,7 +11,9 @@ export default async function RootLayout({
     children: React.ReactNode;
     params: Promise<{ locale: string }>;
 }) {
-    const { locale } = await params;
+    const {locale} = await params;
+
+    const messages = await getMessages();
 
     // Safety check
     if (!locales.includes(locale)) {
@@ -20,13 +23,14 @@ export default async function RootLayout({
     return (
         <html lang={locale}>
         <head>
-            <link rel="icon" href="/favicon.ico" />
+            <link rel="icon" href="/favicon.ico"/>
             <title>KOLLEKTIV</title>
         </head>
-        <body className="font-sans">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <body>
+        <ClientLayout messages={messages} locale={locale}>
+            <main>{children}</main>
+            <Footer/>
+        </ClientLayout>
         </body>
         </html>
     );

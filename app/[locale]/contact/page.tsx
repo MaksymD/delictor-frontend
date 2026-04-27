@@ -2,7 +2,7 @@ import { getPageContent } from "@/lib/content";
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
-    const { data, content } = await getPageContent("contact", locale);
+    const { data } = await getPageContent("contact", locale);
 
     return (
         <section className="bg-gray-100 min-h-screen py-20 text-gray-800">
