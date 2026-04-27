@@ -1,7 +1,7 @@
 "use client";
 
 import {Document, Page, pdfjs} from "react-pdf";
-import {useState, useEffect} from "react";
+import {useState, useCallback, useLayoutEffect} from "react";
 
 // Set up PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
@@ -11,49 +11,44 @@ interface PDFRendererProps {
 }
 
 export default function PDFRenderer({src}: PDFRendererProps) {
-    // Calculate responsive width
-    const getResponsiveWidth = () => {
+    const [numPages, setNumPages] = useState<number>(0);
+    const [containerWidth, setContainerWidth] = useState<number>(() => {
         if (typeof window !== 'undefined') {
-            const viewport = window.visualViewport;
-            const screenWidth = viewport ? viewport.width : window.innerWidth;
-            // On mobile, use screen width minus padding, on desktop use fixed width
-            return screenWidth < 768 ? screenWidth - 40 : 800; // 40px for padding
+            return Math.min(window.innerWidth - 40, 800);
         }
         return 800;
-    };
+    });
 
-    const [numPages, setNumPages] = useState<number>(0);
-    const [pageWidth, setPageWidth] = useState<number>(() => getResponsiveWidth());
+    const updateWidth = useCallback(() => {
+        const width = window.innerWidth;
+        setContainerWidth(Math.min(width - 40, 800));
+    }, []);
+
+    useLayoutEffect(() => {
+        window.addEventListener("resize", updateWidth);
+        return () => window.removeEventListener("resize", updateWidth);
+    }, [updateWidth]);
 
     function onDocumentLoadSuccess({numPages}: { numPages: number }) {
         setNumPages(numPages);
     }
 
-    // Update width on mount and resize
-    useEffect(() => {
-        const handleResize = () => {
-            setPageWidth(getResponsiveWidth());
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
     return (
-        <div className="flex flex-col items-center h-full bg-white px-5">
+        <div className="flex flex-col items-center w-full bg-white px-5 py-4">
             <Document
                 file={src}
                 onLoadSuccess={onDocumentLoadSuccess}
-                className="flex flex-col items-center space-y-4"
+                className="flex flex-col items-center gap-4"
             >
                 {Array.from({length: numPages}, (_, index) => (
                     <Page
                         key={`page_${index + 1}`}
                         pageNumber={index + 1}
-                        width={pageWidth}
+                        width={containerWidth}
+                        devicePixelRatio={typeof window !== 'undefined' ? window.devicePixelRatio : 1}
                         renderTextLayer={false}
                         renderAnnotationLayer={false}
-                        className="shadow-lg max-w-full"
+                        className="shadow-md"
                     />
                 ))}
             </Document>
