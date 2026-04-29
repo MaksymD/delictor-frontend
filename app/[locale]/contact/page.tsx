@@ -14,9 +14,9 @@ export default async function ContactPage({params}: { params: Promise<{ locale: 
 
                 <div className="text-center space-y-2 text-lg">
                     <p>
-                        <strong>{data.phoneLabel}:</strong>{" "}
-                        <a href={`tel:${data.phone}`} className="text-blue-600 hover:underline">
-                            {data.phone}
+                        <strong>{data.emailLabel}:</strong>{" "}
+                        <a href={`E-Mail:${data.email}`} className="text-blue-600 hover:underline">
+                            {data.email}
                         </a>
                     </p>
                     <p>
@@ -57,15 +57,6 @@ export default async function ContactPage({params}: { params: Promise<{ locale: 
                         className="flex items-center justify-center px-4 py-2 rounded-lg bg-white-100 hover:bg-blue-200 transition"
                     >
                         <FacebookIcon className="text-blue-700"/><span>Facebook</span>
-                    </a>
-
-                    <a
-                        href="https://wa.me/1234567890"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center px-4 py-2 rounded-lg bg-white-100 hover:bg-green-200 transition"
-                    >
-                        <WhatsAppIcon className="text-green-700"/><span>WhatsApp</span>
                     </a>
                 </div>
             </div>

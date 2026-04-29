@@ -1,7 +1,7 @@
 ---
 title: "Contact Us"
-phoneLabel: "Phone"
-phone: "+1 234 567 890"
+emailLabel: "E-Mail"
+email: "strudelwerk@gmail.com"
 addressLabel: "Address"
 address: "Brigittaplatz 15, 1200 Vienna, Austria"
 hoursLabel: "Working hours"
