@@ -29,7 +29,7 @@ export default async function ContactPage({params}: { params: Promise<{ locale: 
                 <div className="rounded-lg overflow-hidden shadow">
                     <iframe
                         title="Google Map"
-                        src="https://www.google.com/maps?q=Brigittaplatz+15,+1200+Vienna,+Austria&output=embed"
+                        src="https://www.google.com/maps?q=48.232730,16.371913&z=17&output=embed"
                         width="100%"
                         height="250"
                         style={{border: 0}}
