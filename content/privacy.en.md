@@ -19,4 +19,4 @@ We respect your privacy and are committed to protecting your personal informatio
 
 ## Contact Us
 
-If you have any questions, contact us at privacy@kollektiv.com.
+If you have any questions, contact us at privacy@kollektiv_xx.com.

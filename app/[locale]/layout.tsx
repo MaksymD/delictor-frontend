@@ -24,7 +24,7 @@ export default async function RootLayout({
         <html lang={locale}>
         <head>
             <link rel="icon" href="/favicon.ico"/>
-            <title>KOLLEKTIV</title>
+            <title>KOLLEKTIV XX</title>
         </head>
         <body>
         <ClientLayout messages={messages} locale={locale}>

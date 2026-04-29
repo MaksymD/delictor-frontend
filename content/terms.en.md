@@ -5,7 +5,7 @@ lang: "en"
 
 # Terms of Service
 
-Welcome to KOLLEKTIV. By using our service, you agree to these terms.
+Welcome to «Kollektiv XX». By using our service, you agree to these terms.
 
 ## Use of Service
 
@@ -21,4 +21,4 @@ We reserve the right to modify these terms at any time.
 
 ## Contact Us
 
-For questions, email us at terms@kollektiv.com.
+For questions, email us at terms@kollektiv_xx.com.

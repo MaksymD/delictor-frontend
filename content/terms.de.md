@@ -5,7 +5,7 @@ lang: "de"
 
 # Nutzungsbedingungen
 
-Willkommen bei KOLLEKTIV. Durch die Nutzung unseres Dienstes stimmen Sie diesen Bedingungen zu.
+Willkommen bei «Kollektiv XX». Durch die Nutzung unseres Dienstes stimmen Sie diesen Bedingungen zu.
 
 ## Nutzung des Dienstes
 
@@ -21,4 +21,4 @@ Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern.
 
 ## Kontaktieren Sie uns
 
-Bei Fragen senden Sie uns eine E-Mail an terms@kollektiv.com.
+Bei Fragen senden Sie uns eine E-Mail an terms@kollektiv_xx.com.

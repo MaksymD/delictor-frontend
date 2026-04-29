@@ -1,57 +1,46 @@
 "use client";
 
-import {Document, Page, pdfjs} from "react-pdf";
-import {useState, useCallback, useLayoutEffect} from "react";
+import { Document, Page, pdfjs } from "react-pdf";
+import { useState } from "react";
 
-// Set up PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
 
-interface PDFRendererProps {
-    src: string;
-}
+export default function PDFRenderer({ src }: { src: string }) {
+    const [numPages, setNumPages] = useState(0);
+    const [scale, setScale] = useState(1);
 
-export default function PDFRenderer({src}: PDFRendererProps) {
-    const [numPages, setNumPages] = useState<number>(0);
-    const [containerWidth, setContainerWidth] = useState<number>(() => {
-        if (typeof window !== 'undefined') {
-            return Math.min(window.innerWidth - 40, 800);
-        }
-        return 800;
-    });
-
-    const updateWidth = useCallback(() => {
-        const width = window.innerWidth;
-        setContainerWidth(Math.min(width - 40, 800));
-    }, []);
-
-    useLayoutEffect(() => {
-        window.addEventListener("resize", updateWidth);
-        return () => window.removeEventListener("resize", updateWidth);
-    }, [updateWidth]);
-
-    function onDocumentLoadSuccess({numPages}: { numPages: number }) {
+    function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
         setNumPages(numPages);
     }
 
     return (
-        <div className="flex flex-col items-center w-full bg-white px-5 py-4">
-            <Document
-                file={src}
-                onLoadSuccess={onDocumentLoadSuccess}
-                className="flex flex-col items-center gap-4"
-            >
-                {Array.from({length: numPages}, (_, index) => (
-                    <Page
-                        key={`page_${index + 1}`}
-                        pageNumber={index + 1}
-                        width={containerWidth}
-                        devicePixelRatio={typeof window !== 'undefined' ? window.devicePixelRatio : 1}
-                        renderTextLayer={false}
-                        renderAnnotationLayer={false}
-                        className="shadow-md"
-                    />
-                ))}
-            </Document>
+        <div className="flex flex-col items-center bg-white w-full">
+            {/* Zoom controls */}
+            <div className="flex gap-4 my-4">
+                <button onClick={() => setScale((s) => Math.max(0.5, s - 0.2))}>
+                    ➖
+                </button>
+                <span>{Math.round(scale * 100)}%</span>
+                <button onClick={() => setScale((s) => Math.min(3, s + 0.2))}>
+                    ➕
+                </button>
+            </div>
+
+            {/* Scroll container */}
+            <div className="w-full overflow-auto flex justify-center">
+                <Document file={src} onLoadSuccess={onDocumentLoadSuccess}>
+                    {Array.from({ length: numPages }, (_, index) => (
+                        <div key={index} className="flex justify-center mb-4">
+                            <Page
+                                pageNumber={index + 1}
+                                scale={scale}
+                                renderTextLayer={false}
+                                renderAnnotationLayer={false}
+                            />
+                        </div>
+                    ))}
+                </Document>
+            </div>
         </div>
     );
 }

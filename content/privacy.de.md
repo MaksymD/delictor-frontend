@@ -19,4 +19,4 @@ Wir respektieren Ihre Privatsphäre und verpflichten uns, Ihre persönlichen Inf
 
 ## Kontaktieren Sie uns
 
-Bei Fragen kontaktieren Sie uns unter privacy@kollektiv.com.
+Bei Fragen kontaktieren Sie uns unter privacy@kollektiv_xx.com.

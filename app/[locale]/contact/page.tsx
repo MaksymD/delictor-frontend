@@ -1,36 +1,39 @@
-import { getPageContent } from "@/lib/content";
+import {getPageContent} from "@/lib/content";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 
-export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
-    const { locale } = await params;
-    const { data } = await getPageContent("contact", locale);
+export default async function ContactPage({params}: { params: Promise<{ locale: string }> }) {
+    const {locale} = await params;
+    const {data} = await getPageContent("contact", locale);
 
     return (
         <section className="bg-gray-100 min-h-screen py-20 text-gray-800">
             <div className="max-w-xl mx-auto px-8 space-y-6">
-                <h1 className="text-3xl font-bold text-center">{data.title || "Contact Us"}</h1>
+                <h1 className="text-3xl font-bold text-center">{data.title}</h1>
 
                 <div className="text-center space-y-2 text-lg">
                     <p>
-                        <strong>{data.phoneLabel || "Phone"}:</strong>{" "}
-                        <a href={`tel:${data.phone || "+1 234 567 890"}`} className="text-blue-600 hover:underline">
-                            {data.phone || "+1 234 567 890"}
+                        <strong>{data.phoneLabel}:</strong>{" "}
+                        <a href={`tel:${data.phone}`} className="text-blue-600 hover:underline">
+                            {data.phone}
                         </a>
                     </p>
                     <p>
-                        <strong>{data.addressLabel || "Address"}:</strong> {data.address || "Vienna City Center, Austria"}
+                        <strong>{data.addressLabel}:</strong> {data.address}
+                    </p>
+                    <p>
+                        <strong>{data.hoursLabel}:</strong> {data.hours}
                     </p>
                 </div>
 
                 <div className="rounded-lg overflow-hidden shadow">
                     <iframe
                         title="Google Map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.9999999999995!2d16.372504315956!3d48.2081741792286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d07fd6b1c6b1b%3A0x400fefcfa7b4a60!2sVienna%2C%20Austria!5e0!3m2!1sen!2sat!4v1710000000000"
+                        src="https://www.google.com/maps?q=Brigittaplatz+15,+1200+Vienna,+Austria&output=embed"
                         width="100%"
                         height="250"
-                        style={{ border: 0 }}
+                        style={{border: 0}}
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
@@ -44,7 +47,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                         rel="noopener noreferrer"
                         className="flex items-center justify-center px-4 py-2 rounded-lg bg-white-100 hover:bg-pink-200 transition"
                     >
-                        <InstagramIcon className="text-pink-600" /><span>Instagram</span>
+                        <InstagramIcon className="text-pink-600"/><span>Instagram</span>
                     </a>
 
                     <a
@@ -53,7 +56,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                         rel="noopener noreferrer"
                         className="flex items-center justify-center px-4 py-2 rounded-lg bg-white-100 hover:bg-blue-200 transition"
                     >
-                        <FacebookIcon className="text-blue-700" /><span>Facebook</span>
+                        <FacebookIcon className="text-blue-700"/><span>Facebook</span>
                     </a>
 
                     <a

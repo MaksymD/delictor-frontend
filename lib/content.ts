@@ -13,8 +13,7 @@ export async function getPageContent(page: string, locale: string) {
         const processedContent = await remark().use(html).process(content);
         const contentHtml = processedContent.toString();
         return { data, content: contentHtml };
-    } catch (error) {
-        console.error(`Error reading ${fileName}:`, error);
-        return { data: { title: "Error", subtitle: "", phoneLabel: "Phone", phone: "+1234567890", addressLabel: "Address", address: "Vienna City Center, Austria", instagramLabel: "Instagram" }, content: "<p>Content unavailable.</p>" };
+    } catch {
+        throw new Error(`Failed to load page content: ${fileName}`);
     }
 }
