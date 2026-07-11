@@ -1,38 +1,20 @@
 "use client";
 
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
 import { useRouter, usePathname } from "next/navigation";
-import { useState } from 'react';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import IconButton from '@mui/material/IconButton';
-import { useTranslations } from 'next-intl';
 import Image from "next/image";
-
-const SECTIONS = ["home", "about", "menu", "contact"] as const;
 
 export default function Navbar() {
     const router = useRouter();
     const pathname = usePathname();
-    const t = useTranslations();
 
     // Detect locale safely
     const segments = pathname.split("/");
     const currentLocale = segments[1] === "de" ? "de" : "en";
     const isHome = pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`;
 
-    // Drawer state
-    const [drawerOpen, setDrawerOpen] = useState(false);
-    const toggleDrawer = () => setDrawerOpen((open) => !open);
-
     // Go to a section: smooth-scroll if already on the one-page home,
     // otherwise navigate to the home page landing on the anchor.
     const goToSection = (section: string) => {
-        setDrawerOpen(false);
         if (isHome) {
             document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
             router.push(`/${currentLocale}#${section}`, { scroll: false });
@@ -57,7 +39,7 @@ export default function Navbar() {
                 onClick={() => goToSection("home")}
                 className="flex items-center gap-3 cursor-pointer"
             >
-                <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0">
+                <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0">
                     <Image
                         src="/logo.jpg"
                         alt="Kollektiv XX"
@@ -68,8 +50,8 @@ export default function Navbar() {
                 </div>
             </button>
 
-            <div className="flex items-center gap-4">
-                {/* Language switch — always visible, never hidden in the hamburger */}
+            <div className="flex items-center gap-6">
+                {/* Language switch */}
                 <div className="flex items-center gap-1 font-sans text-sm">
                     <button
                         onClick={() => switchLocale("en")}

@@ -39,7 +39,7 @@ export default async function RootLayout({
         <html lang={locale} className={`${fraunces.variable} ${manrope.variable}`}>
         <head>
             <link rel="icon" href="/favicon.ico"/>
-            <title>Kollektiv XX — Kasachische Küche in Wien</title>
+            <title>Kollektiv XX in Wien</title>
         </head>
         <body>
         <ClientLayout messages={messages} locale={locale}>
