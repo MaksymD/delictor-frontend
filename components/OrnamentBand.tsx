@@ -12,9 +12,9 @@
  */
 
 const TONE_HEX: Record<string, string> = {
-    ochre: "#BE8F3E",
-    terracotta: "#C1552C",
-    turquoise: "#2E7A72",
+    ochre: "#7A1E2D",
+    terracotta: "#7A1E2D",
+    turquoise: "#7A1E2D",
 };
 
 function tileDataUri(hex: string) {

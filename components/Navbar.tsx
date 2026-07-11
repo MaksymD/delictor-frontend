@@ -95,45 +95,7 @@ export default function Navbar() {
                         DE
                     </button>
                 </div>
-
-                {/* Hamburger — holds navigation on every screen size */}
-                <IconButton onClick={toggleDrawer} aria-label="menu" sx={{ color: "var(--color-ink)" }}>
-                    <MenuIcon />
-                </IconButton>
             </div>
-
-            <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                <div className="w-[260px] h-full bg-card flex flex-col">
-                    <div className="flex justify-end p-2">
-                        <IconButton onClick={() => setDrawerOpen(false)} aria-label="close">
-                            <CloseIcon sx={{ color: "var(--color-ink)" }} />
-                        </IconButton>
-                    </div>
-                    <List sx={{ px: 1 }}>
-                        {SECTIONS.map((section) => (
-                            <ListItem key={section} disablePadding>
-                                <ListItemButton
-                                    onClick={() => goToSection(section)}
-                                    sx={{ py: 1.5 }}
-                                >
-                                    <ListItemText
-                                        primary={t(section)}
-                                        slotProps={{
-                                            primary: {
-                                                sx: {
-                                                    fontFamily: "var(--font-display)",
-                                                    fontSize: "1.15rem",
-                                                    color: "var(--color-ink)",
-                                                },
-                                            },
-                                        }}
-                                    />
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List>
-                </div>
-            </Drawer>
         </nav>
     );
 }
