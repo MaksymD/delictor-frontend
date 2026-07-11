@@ -6,7 +6,7 @@
   textiles, with a small turquoise accent, on a warm sand background.
 */
 :root {
-  --background: #F4E7D2;
+  --background: #FFFFFF;
   --foreground: #2A2019;
 }
 
@@ -15,15 +15,15 @@
   --color-foreground: var(--foreground);
 
   /* Palette */
-  --color-sand: #F4E7D2;
-  --color-sand-deep: #E9D3AC;
-  --color-card: #FBF3E6;
+  --color-sand: #FFFFFF;
+  --color-sand-deep: #F7F2EA;
+  --color-card: #FBF8F3;
   --color-ink: #2A2019;
   --color-ink-soft: #5B4B3C;
-  --color-terracotta: #C1552C;
-  --color-terracotta-dark: #8F3E1F;
-  --color-ochre: #BE8F3E;
-  --color-turquoise: #2E7A72;
+  --color-terracotta: #7A1E2D;
+  --color-terracotta-dark: #591420;
+  --color-ochre: #000000;
+  --color-turquoise: #B06B72;
 
   /* Type */
   --font-display: var(--font-fraunces), Georgia, serif;

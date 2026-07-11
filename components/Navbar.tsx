@@ -11,6 +11,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import { useTranslations } from 'next-intl';
+import Image from "next/image";
 
 const SECTIONS = ["home", "about", "menu", "contact"] as const;
 
@@ -54,9 +55,17 @@ export default function Navbar() {
         <nav className="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-card/95 backdrop-blur border-b border-[var(--color-ochre)]/30">
             <button
                 onClick={() => goToSection("home")}
-                className="font-display text-xl md:text-2xl font-semibold text-ink tracking-wide cursor-pointer"
+                className="flex items-center gap-3 cursor-pointer"
             >
-                Kollektiv <span className="text-terracotta">XX</span>
+                <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0">
+                    <Image
+                        src="/logo.jpg"
+                        alt="Kollektiv XX"
+                        fill
+                        className="object-cover scale-150"
+                        priority
+                    />
+                </div>
             </button>
 
             <div className="flex items-center gap-4">

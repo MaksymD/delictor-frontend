@@ -128,7 +128,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
                     <div className="flex gap-4 justify-center flex-wrap">
                         <a
-                            href="https://instagram.com/yourprofile"
+                            href="https://instagram.com/kollektiv.vienna"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--color-ochre)]/40 text-ink-soft hover:border-terracotta hover:text-terracotta transition-colors"
@@ -136,7 +136,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                             <InstagramIcon fontSize="small" /> Instagram
                         </a>
                         <a
-                            href="https://facebook.com/yourprofile"
+                            href="https://facebook.com/kollektiv.vienna"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--color-ochre)]/40 text-ink-soft hover:border-terracotta hover:text-terracotta transition-colors"
