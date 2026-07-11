@@ -50,7 +50,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <section id="about" className="scroll-mt-24 bg-card px-6 py-20 md:py-28">
                 <div className="max-w-2xl mx-auto text-center">
                     {about.data.subtitle && (
-                        <p className="font-sans text-xs md:text-sm tracking-[0.3em] uppercase text-turquoise mb-4">
+                        <p className="font-sans text-xs md:text-sm tracking-[0.3em] uppercase text-terracotta mb-4">
                             {about.data.subtitle}
                         </p>
                     )}
@@ -98,7 +98,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                         {contact.data.title}
                     </h2>
 
-                    <div className="text-center space-y-2 font-sans text-ink-soft text-lg">
+                    <div className="text-left space-y-2 font-sans text-ink-soft text-lg">
                         <p>
                             <strong className="text-ink">{contact.data.emailLabel}:</strong>{" "}
                             <a href={`mailto:${contact.data.email}`} className="text-terracotta hover:underline">
