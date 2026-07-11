@@ -24,6 +24,8 @@
   --color-terracotta-dark: #B8842E;
   --color-ochre: #C79B52;
   --color-turquoise: #C97B86;
+  --color-cream: #F1DCC9;
+  --color-ink-dark: #3A1118;
 
   /* Type */
   --font-display: var(--font-fraunces), Georgia, serif;

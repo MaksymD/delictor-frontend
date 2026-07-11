@@ -52,7 +52,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-card/95 backdrop-blur border-b border-[var(--color-ochre)]/30">
+        <nav className="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-cream/95 backdrop-blur border-b border-[var(--color-ochre)]/30">
             <button
                 onClick={() => goToSection("home")}
                 className="flex items-center gap-3 cursor-pointer"
@@ -77,19 +77,19 @@ export default function Navbar() {
                         className={`px-2 py-1 rounded-full transition-colors cursor-pointer ${
                             currentLocale === "en"
                                 ? "bg-terracotta text-card font-semibold"
-                                : "text-ink-soft hover:text-ink"
+                                : "text-ink-dark/60 hover:text-ink-dark"
                         }`}
                     >
                         EN
                     </button>
-                    <span className="text-ink-soft/50">/</span>
+                    <span className="text-ink-dark/40">/</span>
                     <button
                         onClick={() => switchLocale("de")}
                         aria-current={currentLocale === "de"}
                         className={`px-2 py-1 rounded-full transition-colors cursor-pointer ${
                             currentLocale === "de"
                                 ? "bg-terracotta text-card font-semibold"
-                                : "text-ink-soft hover:text-ink"
+                                : "text-ink-dark/60 hover:text-ink-dark"
                         }`}
                     >
                         DE
