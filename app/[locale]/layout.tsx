@@ -1,8 +1,23 @@
 import "@/styles/globals.css";
 import ClientLayout from "@/components/ClientLayout";
-import Footer from "@/components/Footer";
 import {locales} from "@/lib/i18n";
 import {getMessages} from 'next-intl/server';
+import {Fraunces, Manrope} from "next/font/google";
+
+const fraunces = Fraunces({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    style: ["normal", "italic"],
+    variable: "--font-fraunces",
+    display: "swap",
+});
+
+const manrope = Manrope({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700", "800"],
+    variable: "--font-manrope",
+    display: "swap",
+});
 
 export default async function RootLayout({
                                              children,
@@ -21,15 +36,14 @@ export default async function RootLayout({
     }
 
     return (
-        <html lang={locale}>
+        <html lang={locale} className={`${fraunces.variable} ${manrope.variable}`}>
         <head>
             <link rel="icon" href="/favicon.ico"/>
-            <title>KOLLEKTIV XX</title>
+            <title>Kollektiv XX — Kasachische Küche in Wien</title>
         </head>
         <body>
         <ClientLayout messages={messages} locale={locale}>
-            <main>{children}</main>
-            <Footer/>
+            {children}
         </ClientLayout>
         </body>
         </html>

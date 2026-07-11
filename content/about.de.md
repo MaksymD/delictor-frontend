@@ -1,6 +1,7 @@
 ---
-title: "Willkommen auf der Über-uns-Seite"
+title: "Über uns"
+subtitle: "Von der Steppe auf den Teller"
 lang: "de"
 ---
 
-Täglich frische, biologische und köstliche Mahlzeiten.
+Kollektiv XX bringt die Aromen Kasachstans nach Wien: würzige Suppen, handgemachte Teigtaschen und Fleischgerichte, die traditionell in der Mitte des Tisches geteilt werden. Wir kochen nach überlieferten Rezepten und mit Respekt vor den Zutaten – einfach, ehrlich und für gemeinsame Momente gemacht.

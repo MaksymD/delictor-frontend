@@ -1,6 +1,7 @@
 ---
-title: "Willkommen bei «Kollektiv XX»"
-subtitle: "Ein neues kulinarisches Erlebnis kommt bald nach Wien"
+title: "Kollektiv XX"
+subtitle: "Kasachische Küche mitten in Wien"
 lang: "de"
 ---
 
+Herzhafte Gerichte der Steppe – von Beshbarmak bis Baursak – serviert mit der Gastfreundschaft, für die Kasachstan bekannt ist. Wir eröffnen bald in Wien.

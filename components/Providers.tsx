@@ -8,7 +8,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 const theme = createTheme({
     palette: {
         primary: {
-            main: "#000000", // Black for active buttons
+            main: "#C1552C", // Terracotta — brand accent
+            dark: "#8F3E1F",
         },
     },
 });

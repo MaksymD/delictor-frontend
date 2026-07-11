@@ -5,9 +5,9 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
     const { data, content } = await getPageContent("privacy", locale);
 
     return (
-        <section className="text-center py-20 bg-gray-100 text-gray-800">
-            <h1 className="text-4xl font-bold mb-4">{data.title || "Privacy Policy"}</h1>
-            <div className="prose prose-lg mx-auto px-8" dangerouslySetInnerHTML={{ __html: content }} />
+        <section className="text-center py-20 bg-sand text-ink min-h-screen">
+            <h1 className="font-display text-4xl font-semibold mb-6">{data.title || "Privacy Policy"}</h1>
+            <div className="content-copy max-w-2xl mx-auto px-8 text-left" dangerouslySetInnerHTML={{ __html: content }} />
         </section>
     );
 }
